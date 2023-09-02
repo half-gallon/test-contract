@@ -17,7 +17,8 @@ describe("Verifier", function () {
     const { proof } = ownerProof;
 
     expect(await verifierConsumer.callStatic.isOwner(proof)).to.be.true;
-    expect(await verifierConsumer.callStatic.isOther(proof)).to.be.false;
+    // // ^^^^^^ equivalent vvvvvvvvvv
+    expect(await verifierConsumer.callStatic.verify([1, 0], proof)).to.be.true;
   });
 
   it("Should not verify other's api response", async function () {
@@ -27,6 +28,7 @@ describe("Verifier", function () {
     const { proof } = ownerProof;
 
     expect(await verifierConsumer.callStatic.isOwner(proof)).to.be.false;
-    expect(await verifierConsumer.callStatic.isOther(proof)).to.be.true;
+    // ^^^^^^ equivalent vvvvvvvvvv
+    expect(await verifierConsumer.callStatic.verify([1, 0], proof)).to.be.false;
   });
 });
