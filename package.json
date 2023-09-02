@@ -1,0 +1,11 @@
+{
+  "name": "hardhat-project",
+  "scripts": {
+    "build": "cp ../model/Verifier.sol ./contracts && hardhat compile",
+    "test": "hardhat test"
+  },
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+    "hardhat": "^2.17.2"
+  }
+}
